@@ -54,7 +54,7 @@ const Login = () => {
                 </Wrapper>
                 :
                 <Wrapper>
-                    <TextField variant="standard" label="Enter Name" />
+                    <TextField variant="standard" onChange={()=>} label="Enter Name" />
                     <TextField variant="standard" label="Enter Email Id" />
 
                     <TextField variant="standard" label="Enter Password" />
