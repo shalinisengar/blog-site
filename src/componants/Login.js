@@ -33,10 +33,22 @@ border-redius:2px;
 const Signupbtn = styled(Button)`
 box-shadow:0 2px 4px 0 rgb(0 0 0/20%);`
 
+
+const singupinitialvalue ={
+    name:'',
+    email:'',
+    password:''
+}
 const Login = () => {
     const [account,setAccount] = useState('login');
+    const [signup,Setsignup]=useState(singupinitialvalue)
     const toggleSignup =()=>{
       account === 'signup'?setAccount('login'):setAccount('signup')
+    }
+    const signupvalue = (e)=>{
+        Setsignup({...signup,[e.target.name]:e.target.value})
+console.log(e.target.name,e.target.value);
+
     }
     // const toggleSignin =()=>{
     //     setAccount('login');
@@ -54,10 +66,10 @@ const Login = () => {
                 </Wrapper>
                 :
                 <Wrapper>
-                    <TextField variant="standard"  label="Enter Name" />
-                    <TextField variant="standard" label="Enter Email Id" />
+                    <TextField variant="standard" onChange={(e)=>signupvalue(e)} name='Name' label="Enter Name" />
+                    <TextField variant="standard"onChange={(e)=>signupvalue(e)} name='email' label="Enter Email Id" />
 
-                    <TextField variant="standard" label="Enter Password" />
+                    <TextField variant="standard" onChange={(e)=>signupvalue(e)} name='password' label="Enter Password" />
                     <Signupbtn >SignUp</Signupbtn>
                     <Typography>OR</Typography>
                     <LoginButton variant="contained" onClick={()=>toggleSignup()}>Already have an account</LoginButton>
